@@ -693,6 +693,62 @@ const IntelligentLenderMatchingComponent: React.FC = () => {
             </div>
           </ExpandableSection>
 
+          <ExpandableSection title="Cregenius " icon={FileText}>
+            <div>
+              <label htmlFor="environmentalIssues" className="block text-sm font-medium text-gray-700 mb-2">Cregenius</label>
+              <textarea
+                id="environmentalIssues"
+                name="environmentalIssues"
+                value={formData.environmentalIssues}
+                onChange={handleInputChange}
+                placeholder="Describe any known environmental issues"
+                className="w-full p-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+                rows={3}
+              ></textarea>
+            </div>
+            <div>
+              <label htmlFor="existingTenants" className="block text-sm font-medium text-gray-700 mb-2">Cregenius</label>
+              <textarea
+                id="existingTenants"
+                name="existingTenants"
+                value={formData.existingTenants}
+                onChange={handleInputChange}
+                placeholder="Describe major tenants and lease terms"
+                className="w-full p-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+                rows={3}
+              ></textarea>
+            </div>
+            <div>
+              <label htmlFor="pendingLegalIssues" className="block text-sm font-medium text-gray-700 mb-2">Cregenius</label>
+              <textarea
+                id="pendingLegalIssues"
+                name="pendingLegalIssues"
+                value={formData.pendingLegalIssues}
+                onChange={handleInputChange}
+                placeholder="Describe any pending legal issues"
+                className="w-full p-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+                rows={3}
+              ></textarea>
+            </div>
+            <div>
+              <label htmlFor="preferredLenderType" className="block text-sm font-medium text-gray-700 mb-2">Cregenius</label>
+              <select
+                id="preferredLenderType"
+                name="preferredLenderType"
+                value={formData.preferredLenderType}
+                onChange={handleInputChange}
+                className="w-full p-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              >
+                <option value="">Cregenius</option>
+                <option value="bank">Bank</option>
+                <option value="credit-union">Credit Union</option>
+                <option value="private-lender">Private Lender</option>
+                <option value="government-backed">Government-Backed</option>
+                <option value="any">Any</option>
+              </select>
+            </div>
+          </ExpandableSection>
+
           <button
             type="submit"
             className="mt-6 w-full bg-orange-500 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center"
