@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { Users, Building, DollarSign, Zap, ChevronRight, Star, ChevronDown, ChevronUp, User, Briefcase, FileText } from 'lucide-react';
+import { Users, Building, DollarSign, Zap, ChevronRight, Star, ChevronDown, ChevronUp, User, Briefcase, FileText, Brain } from 'lucide-react';
 
 const usStates = [
     'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
@@ -76,27 +76,54 @@ const LenderCard: React.FC<{ lender: Lender }> = ({ lender }) => (
     </div>
   </div>
 );
+// Define the props interface
+interface ExpandableSectionProps {
+  title: string;
+  children: React.ReactNode;
+  icon?: React.ElementType; // Optional icon prop
+  isLast?: boolean; // Optional prop to identify the last section
+}
 
-const ExpandableSection: React.FC<{ title: string; children: React.ReactNode; icon: React.ElementType }> = ({ title, children, icon: Icon }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const ExpandableSection: React.FC<ExpandableSectionProps> = ({ title, children, icon: Icon, isLast = false }) => {
+  const [isOpen, setIsOpen] = useState(false); // State to control open/close
 
   return (
-    <div className="mb-6">
+    <div
+      className={`${
+        isLast
+          ? "mt-6 w-full bg-orange-500 text-white py-1 rounded-md text-lg font-semibold "
+          : "mb-6 border border-orange-500 rounded-md text-center"
+      }`}
+    >
       <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full px-4 py-2 bg-gray-100 text-gray-700 font-medium rounded-md hover:bg-gray-200 transition-colors duration-300"
+        onClick={() => setIsOpen(!isOpen)} // Toggle open/close state on click
+        className={`flex items-center ${
+          isLast ? "justify-center" : "justify-between"
+        } w-full px-4 py-2 ${
+          isLast ? "bg-orange-500 text-white" : "bg-gray-100 text-gray-700"
+        } font-medium rounded-md transition-colors duration-300`}
       >
         <span className="flex items-center">
-          <Icon size={20} className="mr-2" />
-          {title}
+          {Icon && <Icon size={20} className={`mr-2 ${isLast ? "text-white" : "text-orange-500"}`} />}
+          {title} {/* Title passed as a prop */}
         </span>
-        {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        {!isLast && (
+          isOpen ? (
+            <ChevronUp size={20} className={`${isLast ? "text-white" : "text-orange-500"}`} />
+          ) : (
+            <ChevronDown size={20} className={`${isLast ? "text-white" : "text-orange-500"}`} />
+          )
+        )}
       </button>
       {isOpen && <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">{children}</div>}
     </div>
   );
 };
+
+
+
+
 const IntelligentLenderMatchingComponent: React.FC = () => {
     const [formData, setFormData] = useState<FormData>(() => ({
         propertyType: '',
@@ -299,7 +326,7 @@ const IntelligentLenderMatchingComponent: React.FC = () => {
   return (
     <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-8">
+        <h2 className="text-3xl font-extrabold text-orange-500 text-center mb-8">
           Intelligent Lender Matching
         </h2>
         <p className="text-xl text-gray-600 text-center mb-12">
@@ -693,16 +720,16 @@ const IntelligentLenderMatchingComponent: React.FC = () => {
             </div>
           </ExpandableSection>
 
-          <ExpandableSection title="Cregenius " icon={FileText}>
-            <div>
-              <label htmlFor="environmentalIssues" className="block text-sm font-medium text-gray-700 mb-2">Cregenius</label>
+          <ExpandableSection title="Cregenius AI" isLast icon={Brain}>
+            <div >
+              <label htmlFor="environmentalIssues" className="block text-sm font-medium text-gray-700 mb-2 text-center">Cregenius</label>
               <textarea
                 id="environmentalIssues"
                 name="environmentalIssues"
                 value={formData.environmentalIssues}
                 onChange={handleInputChange}
                 placeholder="Describe any known environmental issues"
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+                className="w-full"
                 rows={3}
               ></textarea>
             </div>
@@ -726,7 +753,7 @@ const IntelligentLenderMatchingComponent: React.FC = () => {
                 value={formData.pendingLegalIssues}
                 onChange={handleInputChange}
                 placeholder="Describe any pending legal issues"
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+                className="w-full p-2 border border-gray-300 rounded-md focus:ring-orange-500"
                 rows={3}
               ></textarea>
             </div>
