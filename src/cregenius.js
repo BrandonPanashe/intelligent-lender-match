@@ -33,8 +33,8 @@ function Cregenius() {
   };
 
   return (
-    <div className=" flex items-center justify-center">
-      <div className="w-full bg-orange-500 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl border border-orange-400">
+    <div className=" flex items-center justify-center ">
+      <div className="w-full bg-orange-450 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl border border-orange-400">
         <div 
           className="p-2 cursor-pointer flex justify-center items-center"
           onClick={toggleOpen}
