@@ -711,12 +711,26 @@ const IntelligentLenderMatchingComponent: React.FC = () => {
                 onChange={handleInputChange}
                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
               >
-                <option value="">Select Preferred Lender Type</option>
-                <option value="bank">Bank</option>
-                <option value="credit-union">Credit Union</option>
-                <option value="private-lender">Private Lender</option>
-                <option value="government-backed">Government-Backed</option>
-                <option value="any">Any</option>
+                 <option value="">Select Preferred Lender Type</option>
+                 <option value="bank">Bank</option>
+                 <option value="credit-union">Credit Union</option>
+                 <option value="private-lender">Private Lender</option>
+                 <option value="government-backed">Government-Backed</option>
+                 <option value="commercial-bank">Commercial Bank</option>
+                 <option value="investment-bank">Investment Bank</option>
+                 <option value="insurance-company">Insurance Company</option>
+                 <option value="asset-based-lender">Asset-Based Lender</option>
+                 <option value="sba-lender">SBA Lender</option>
+                 <option value="cmbs-lender">CMBS Lender</option>
+                 <option value="reit">REIT</option>
+                 <option value="mezzanine-lender">Mezzanine Lender</option>
+                 <option value="hard-money-lender">Hard Money Lender</option>
+                 <option value="bridge-lender">Bridge Lender</option>
+                 <option value="life-company-lender">Life Company Lender</option>
+                 <option value="agency-lender">Agency Lender</option>
+                 <option value="debt-fund">Debt Fund</option>
+                 <option value="credit-company">Credit Company</option>
+                 <option value="any">Any</option>
               </select>
             </div>
           </ExpandableSection>
