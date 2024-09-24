@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, FileText, Send, ChevronDown, Brain } from 'lucide-react';
+import { Upload, FileText, Send, ChevronDown} from 'lucide-react';
 
 function Cregenius() {
   const [selectedFile, setSelectedFile] = useState(null);
