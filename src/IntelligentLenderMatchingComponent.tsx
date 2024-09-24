@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Cregenius from './cregenius';
-import { Users, Building, DollarSign, Zap, ChevronRight, Star, ChevronDown, ChevronUp, User, Briefcase, FileText, Brain } from 'lucide-react';
+import { Users, Building, DollarSign, Zap, ChevronRight, Star, ChevronDown, ChevronUp, User, Briefcase, FileText } from 'lucide-react';
 
 const usStates = [
     'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
